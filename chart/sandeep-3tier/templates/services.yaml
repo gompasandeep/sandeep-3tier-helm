@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sandeep-mongodb
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: sandeep-mongodb
+  ports:
+  - port: 27017
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sandeep-backend
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: sandeep-backend
+  ports:
+  - port: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sandeep-frontend
+  namespace: {{ .Values.namespace }}
+spec:
+  type: {{ .Values.service.frontendType }}
+  selector:
+    app: sandeep-frontend
+  ports:
+  - port: 80
+    targetPort: 80

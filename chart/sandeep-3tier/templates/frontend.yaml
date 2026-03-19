@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sandeep-frontend
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      app: sandeep-frontend
+  template:
+    metadata:
+      labels:
+        app: sandeep-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: {{ .Values.frontend.image }}:{{ .Values.frontend.tag }}
+        ports:
+        - containerPort: 80

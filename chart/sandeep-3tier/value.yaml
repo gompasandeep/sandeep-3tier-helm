@@ -1,0 +1,18 @@
+namespace: sandeep
+
+frontend:
+  image: sandeepgompa/sandeep-frontend
+  tag: latest
+  replicas: 2
+
+backend:
+  image: sandeepgompa/sandeep-backend
+  tag: latest
+  replicas: 2
+
+mongodb:
+  image: mongo
+  tag: "6"
+
+service:
+  frontendType: LoadBalancer

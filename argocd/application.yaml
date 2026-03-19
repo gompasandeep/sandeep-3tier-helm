@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sandeep-3tier
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/gompasandeep/sandeep-3tier-helm.git
+    targetRevision: HEAD
+    path: chart/sandeep-3tier
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sandeep
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
