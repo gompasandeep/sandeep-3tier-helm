@@ -2,7 +2,7 @@ namespace: sandeep
 
 frontend:
   image: sandeepgompa/sandeep-frontend
-  tag: latest
+  tag: v2
   replicas: 2
 
 backend:
