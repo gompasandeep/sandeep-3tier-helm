@@ -15,4 +15,4 @@ mongodb:
   tag: "6"
 
 service:
-  frontendType: LoadBalancer
+  frontendType: ClusterIP
